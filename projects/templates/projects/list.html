@@ -19,8 +19,10 @@
             <div>
                 {% for project in list_of_projects %}
                 <tr>
-                    <td>{{ project.name }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{% url 'show_project' project.pk %}">{{ project.name }}</a>
+                    </td>
+                    <td>{{ project.tasks.count }}</td>
                 </tr>
                 {% endfor %}
             </div>

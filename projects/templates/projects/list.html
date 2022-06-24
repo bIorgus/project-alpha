@@ -8,6 +8,9 @@
 <main>
     <div>
         <h1>My Projects</h1>
+        <p>
+            <a href="{% url 'create_project' %}">Create a new project</a>
+        </p>
         {% if list_of_projects %}
         <table>
             <div>

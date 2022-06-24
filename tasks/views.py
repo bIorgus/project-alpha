@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from tasks.models import Task
 
@@ -23,3 +24,12 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     # this should redirect to the detail view of the project for which
     # the task was created, but i can't figure that out quickly enough
     # so it will redirect to home for now
+
+
+class TaskListView(LoginRequiredMixin, ListView):
+    model = Task
+    template = "tasks/list.html"
+    context_object_name = "task_list"
+
+    def get_queryset(self):
+        return Task.objects.filter(assignee=self.request.user)

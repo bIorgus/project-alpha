@@ -9,7 +9,6 @@ class Project(models.Model):
     members = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name="projects",
-        # on_delete=models.CASCADE, wasn't specified in instructions but seems like a good idea 6/17 16:38
     )
 
     def __str__(self):

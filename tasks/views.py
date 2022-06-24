@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
@@ -19,12 +19,9 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         item.save()
         return redirect("home")
 
-    # def get_success_url(self):
-    #     return redirect("home")
-
     # this should redirect to the detail view of the project for which
-    # the task was created, but i can't figure that out quickly enough
-    # so it will redirect to home for now
+    # the task was created, but i don't know how to do it. i will ask
+    # about it next week
 
 
 class TaskListView(LoginRequiredMixin, ListView):

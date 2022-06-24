@@ -2,43 +2,43 @@
 {% load markdownify %}
 
 {% block title %}
-<title>Details</title>
+    <title>Details</title>
 {% endblock title %}
 
 {% block content %}
-<main>
-    <div>
+    <main>
+        <div>
 
-        <h1>{{ project_detail }}</h1>
-        {{ project_detail.description|markdownify }}
-        <h2>Tasks</h2>
-        <p>
-            <a href="{% url 'create_task' %}">Create a new task</a>
-        </p>
-        {% if project_detail.tasks.all %}
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Assignee</th>
-                <th>Start date</th>
-                <th>Due date</th>
-                <th>Is completed</th>
-            </tr>
-            {% for task in project_detail.tasks.all %}
-            <tr>
-                <td>{{ task }}</td>
-                <td>{{ task.assignee }}</td>
-                <td>{{ task.start_date }}</td>
-                <td>{{ task.due_date }}</td>
-                <td>{{ task.is_completed }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% else %}
-        <p>This project has no tasks</p>
-        {% endif %}
+            <h1>{{ project_detail }}</h1>
+            {{ project_detail.description|markdownify }}
+            <h2>Tasks</h2>
+            <p>
+                <a href="{% url 'create_task' %}">Create a new task</a>
+            </p>
+            {% if project_detail.tasks.all %}
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Assignee</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                    </tr>
+                    {% for task in project_detail.tasks.all %}
+                        <tr>
+                            <td>{{ task }}</td>
+                            <td>{{ task.assignee }}</td>
+                            <td>{{ task.start_date }}</td>
+                            <td>{{ task.due_date }}</td>
+                            <td>{{ task.is_completed }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>This project has no tasks</p>
+            {% endif %}
 
-    </div>
+        </div>
 
-</main>
+    </main>
 {% endblock content %}

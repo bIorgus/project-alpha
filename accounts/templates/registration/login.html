@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Login</title>
+    <title>Login</title>
 {% endblock title %}
 
 {% block content %}
-<main>
-    <div>
-        <h1>Login</h1>
-        <form method="POST">
-            {% csrf_token %}
-            <!-- <input type="text" name="username">
+    <main>
+        <div>
+            <h1>Login</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <!-- <input type="text" name="username">
             <input type="password" name="password"> -->
-            {{ form.as_p }}
-            <button>Login</button>
-        </form>
-    </div>
-</main>
+                {{ form.as_p }}
+                <button>Login</button>
+            </form>
+        </div>
+    </main>
 {% endblock content %}

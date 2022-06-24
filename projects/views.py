@@ -1,13 +1,12 @@
-# from django.http import HttpResponseRedirect
-
 from django.shortcuts import redirect
-from django.urls.base import reverse_lazy, reverse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from projects.models import Project
+
+# from django.urls.base import reverse_lazy, reverse
 
 
 # Create your views here.
@@ -36,7 +35,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         item = form.save()
         item.owner = self.request.user
         item.save()
-        return redirect("home")
+        return redirect("show_project", self)
 
     # should redirect to detail for newly created project,
     # moving on for now 6/23 18:35
